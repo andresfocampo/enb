@@ -1,0 +1,15 @@
+#!/bin/bash
+source enb_params
+
+#=================== Networking ======================
+#virtual interfaces
+sudo ifconfig $enb_if_s1c $enb_ip_s1c up
+sudo ifconfig $enb_if_s1u $enb_ip_s1u up
+sudo ifconfig $enb_if_x2c $enb_ip_x2c up
+
+#=================== Route to EPC =====================
+#adding route to S1C interface
+sudo ip route add $mme_ip via 10.0.3.1 dev $local_s_if_name
+#adding route to S1U interface
+sudo ip route add $spgw_ip via 10.0.3.1 dev $local_s_if_name
+#======================================================

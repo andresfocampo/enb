@@ -1,0 +1,26 @@
+#!/bin/bash
+cd ~/
+#================== Building OAI ======================
+#Getting source code
+git clone https://andresocp@gitlab.eurecom.fr/oai/openairinterface5g.git
+
+#cloning conf files
+mkdir openairinterface5g/ci-scripts/conf_files/enb
+cp openairinterface5g/ci-scripts/conf_files/enb.band7.tm1.25PRB.usrpb210.conf openairinterface5g/ci-scripts/conf_files/enb
+
+cd ~/openairinterface5g/
+git checkout -f 2019.w41
+source oaienv  
+
+#Installing dependencies
+./cmake_targets/build_oai -I -w USRP
+#building the code
+./cmake_targets/build_oai --eNB -w USRP
+
+
+
+
+
+
+
+
