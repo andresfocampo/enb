@@ -1,0 +1,18 @@
+#!/bin/bash
+source du_params
+cp ~/openairinterface5g/ci-scripts/conf_files/enb.band7.tm1.25PRB.usrpb210.conf ~/openairinterface5g/ci-scripts/conf_files/du
+PREFIX=$HOME'/openairinterface5g/ci-scripts/conf_files/du/enb.band7.tm1.25PRB.usrpb210.conf'
+
+#================== MME parameters ====================
+sed -i -e "s|CI_MME_IP_ADDR|$mme_ip|g" $PREFIX
+#======================================================
+
+#================ NETWORK_INTERFACES ==================
+sed -i '/ENB_INTERFACE_NAME_FOR_S1_MME/c\        ENB_INTERFACE_NAME_FOR_S1_MME            = "'$du_if_s1c'";' $PREFIX
+sed -i '/ENB_IPV4_ADDRESS_FOR_S1_MME/c\        ENB_IPV4_ADDRESS_FOR_S1_MME              = "'$du_ip_s1c'";' $PREFIX
+sed -i '/ENB_INTERFACE_NAME_FOR_S1U/c\        ENB_INTERFACE_NAME_FOR_S1U               = "'$du_if_s1u'";' $PREFIX
+sed -i '/ENB_IPV4_ADDRESS_FOR_S1U/c\        ENB_IPV4_ADDRESS_FOR_S1U                 = "'$du_ip_s1u'";' $PREFIX
+sed -i '/ENB_PORT_FOR_S1U/c\        ENB_PORT_FOR_S1U                         = "'$du_port_s1u'";' $PREFIX
+sed -i '/ENB_IPV4_ADDRESS_FOR_X2C/c\        ENB_IPV4_ADDRESS_FOR_X2C                 = "'$du_ip_x2c'";' $PREFIX
+sed -i '/ENB_PORT_FOR_X2C/c\       ENB_PORT_FOR_X2C                         = "'$du_port_x2c'";' $PREFIX
+#======================================================

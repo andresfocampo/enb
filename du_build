@@ -5,8 +5,7 @@ cd ~/
 git clone https://andresocp@gitlab.eurecom.fr/oai/openairinterface5g.git
 
 #cloning conf files
-mkdir openairinterface5g/ci-scripts/conf_files/enb
-cp openairinterface5g/ci-scripts/conf_files/enb.band7.tm1.25PRB.usrpb210.conf openairinterface5g/ci-scripts/conf_files/enb
+mkdir openairinterface5g/ci-scripts/conf_files/du
 
 cd ~/openairinterface5g/
 git checkout -f 2019.w41

@@ -4,7 +4,7 @@ cd ~/
 #============= Installing dependencies ================
 echo ubuntu | sudo apt -y update 
 sudo apt -y upgrade
-sudo apt -y install git subversion cmake wget net-tools gedit
+sudo apt -y install subversion cmake wget net-tools nano
 #======================================================
 
 #=========== Installing kernel modules ================
@@ -12,18 +12,18 @@ sudo apt -y install linux-headers-$(uname -r)
 #======================================================
 
 #=================== Networking ======================
-cd ~/enb
-source enb_net_conf
+cd ~/vbbu4
+source du_net_conf
 #======================================================
 
 #================== Building OAI ======================
-cd ~/enb
-source enb_build
+cd ~/vbbu4
+source du_build
 #======================================================
 
 #================= Configuring OAI ====================
-cd ~/enb
-source enb_conf
+cd ~/vbbu4
+source du_conf
 #======================================================
 
-#./cmake_targets/lte_build_oai/build/lte-softmodem -O ci-scripts/conf_files/enb/enb.band7.tm1.25PRB.usrpb210.conf
+#sudo ./cmake_targets/lte_build_oai/build/lte-softmodem -O ci-scripts/conf_files/du/enb.band7.tm1.25PRB.usrpb210.conf
